@@ -49,13 +49,11 @@ public class PlataformaController : ControllerBase
 
 
     [HttpPut()]
-    [Route("alterar")] /// PROBLEMA -- VER COM O PROFESSOR
+    [Route("alterar")] 
     public async Task<ActionResult> Alterar(Plataforma plat)
     {
         if (_dbContext is null) return NotFound();
         if (_dbContext.Plataforma is null) return NotFound();
-        var platTemp = await _dbContext.Plataforma.FindAsync(plat.Tipo);
-        if (platTemp is null) return NotFound();
         _dbContext.Plataforma.Update(plat);
         await _dbContext.SaveChangesAsync();
         return Ok();
