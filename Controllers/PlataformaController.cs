@@ -37,12 +37,12 @@ public class PlataformaController : ControllerBase
     }
 
     [HttpGet]
-    [Route("buscar/{tipo}")]
-    public async Task<ActionResult<Plataforma>> Buscar(string tipo)
+    [Route("buscar/{idPlataforma}")]
+    public async Task<ActionResult<Plataforma>> Buscar(int idPlataforma)
     {
         if (_dbContext is null) return NotFound();
         if (_dbContext.Plataforma is null) return NotFound();
-        var plataformaTemp = await _dbContext.Plataforma.FindAsync(tipo);
+        var plataformaTemp = await _dbContext.Plataforma.FindAsync(idPlataforma);
         if (plataformaTemp is null) return NotFound();
         return plataformaTemp;
     }
@@ -61,12 +61,12 @@ public class PlataformaController : ControllerBase
 
 
     [HttpDelete()]
-    [Route("excluir/{tipo}")]
-    public async Task<ActionResult> Excluir(string tipo)
+    [Route("excluir/{idPlataforma}")]
+    public async Task<ActionResult> Excluir(int idPlataforma)
     {
         if (_dbContext is null) return NotFound();
         if (_dbContext.Plataforma is null) return NotFound();
-        var plataformaTemp = await _dbContext.Plataforma.FindAsync(tipo);
+        var plataformaTemp = await _dbContext.Plataforma.FindAsync(idPlataforma);
         if (plataformaTemp is null) return NotFound();
         _dbContext.Remove(plataformaTemp);
         await _dbContext.SaveChangesAsync();

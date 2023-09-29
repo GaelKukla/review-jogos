@@ -6,7 +6,7 @@ using review_jogos_steam.Data;
 namespace review_jogos_steam.Controllers;
 
 [ApiController]
-[Route("[controler]")]
+[Route("[controller]")]
 public class ConquistaController : ControllerBase
 {
     private ReviewDbContext _dbContext;
@@ -37,12 +37,12 @@ public class ConquistaController : ControllerBase
     }
 
     [HttpGet()]
-    [Route("Buscar{tipo}")]
-    public async Task<ActionResult<Conquista>> Buscar(string tipo)
+    [Route("Buscar/{idConquista}")]
+    public async Task<ActionResult<Conquista>> Buscar(int idConquista)
     {
         if(_dbContext is null) return NotFound();
         if(_dbContext.Conquista is null) return NotFound();
-        var conctemp = await _dbContext.Conquista.FindAsync(tipo);
+        var conctemp = await _dbContext.Conquista.FindAsync(idConquista);
         if(conctemp is null) return NotFound();
         return conctemp;
     }
@@ -53,20 +53,18 @@ public class ConquistaController : ControllerBase
     {
         if(_dbContext is null) return NotFound();
         if(_dbContext.Conquista is null) return NotFound();
-        var conctemp = await _dbContext.Conquista.FindAsync(conquista.Tipo);
-        if(conctemp is null) return NotFound();
         _dbContext.Conquista.Update(conquista);
         await _dbContext.SaveChangesAsync();
         return Ok();
     }
 
     [HttpDelete()]
-    [Route("Excluir{tipo}")]
-    public async Task<ActionResult> Excluir(string tipo)
+    [Route("Excluir/{idConquista}")]
+    public async Task<ActionResult> Excluir(int idConquista)
     {
         if(_dbContext is null) return NotFound();
         if(_dbContext.Conquista is null) return NotFound();
-        var conctemp = await _dbContext.Conquista.FindAsync(tipo);
+        var conctemp = await _dbContext.Conquista.FindAsync(idConquista);
         if(conctemp is null) return NotFound();
         _dbContext.Conquista.Remove(conctemp);
         await _dbContext.SaveChangesAsync();

@@ -6,7 +6,7 @@ using review_jogos_steam.Data;
 namespace review_jogos_steam.Controllers;
 
 [ApiController]
-[Route("[controler]")]
+[Route("[controller]")]
 
 public class GeneroController : ControllerBase
 {
@@ -38,12 +38,12 @@ public class GeneroController : ControllerBase
     }
 
     [HttpGet()]
-    [Route("Buscar{tipo}")]
-    public async Task<ActionResult<Genero>> Buscar(string tipo)
+    [Route("Buscar{idGenero}")]
+    public async Task<ActionResult<Genero>> Buscar(int idGenero)
     {
         if(_dbContext is null) return NotFound();
         if(_dbContext.Genero is null) return NotFound();
-        var gentemp = await _dbContext.Genero.FindAsync(tipo);
+        var gentemp = await _dbContext.Genero.FindAsync(idGenero);
         if(gentemp is null) return NotFound();
         return gentemp;
     }
@@ -54,20 +54,18 @@ public class GeneroController : ControllerBase
     {
         if(_dbContext is null) return NotFound();
         if(_dbContext.Genero is null) return NotFound();
-        var gentemp = await _dbContext.Genero.FindAsync(genero.Tipo);
-        if(gentemp is null) return NotFound();
         _dbContext.Genero.Update(genero);
         await _dbContext.SaveChangesAsync();
         return Ok();
     }
 
     [HttpDelete()]
-    [Route("Excluir{tipo}")]
-    public async Task<ActionResult> Excluir(string tipo)
+    [Route("Excluir{idGenero}")]
+    public async Task<ActionResult> Excluir(int idGenero)
     {
         if(_dbContext is null) return NotFound();
         if(_dbContext.Genero is null) return NotFound();
-        var gentemp = await _dbContext.Genero.FindAsync(tipo);
+        var gentemp = await _dbContext.Genero.FindAsync(idGenero);
         if(gentemp is null) return NotFound();
         _dbContext.Genero.Remove(gentemp);
         await _dbContext.SaveChangesAsync();

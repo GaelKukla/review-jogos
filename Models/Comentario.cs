@@ -4,5 +4,8 @@ namespace review_jogos_steam.Models;
 public class Comentario
 {
     [Key]
-    public int Id { get; set; }
+    public int IdComentario { get; set; }
+    public int IdUsuario { get; set; }
+    public int IdJogo { get; set; }
+    public string? Coment { get; set; }
 }
