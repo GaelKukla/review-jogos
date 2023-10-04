@@ -4,5 +4,6 @@ namespace review_jogos_steam.Models;
 public class Desenvolvedor
 {
     [Key]
-    public int Id { get; set; }
+    public int IdDesenvolvedor { get; set; }
+    public string? Nome { get; set; }
 }
