@@ -6030,32 +6030,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kyeru\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\mrmis\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Kyeru\\OneDrive\\Outro\\Documentos\\GitHub\\review-jogos-steam\\review-jogos-steam.csproj",
+      "projectUniqueName": "c:\\Users\\mrmis\\Documents\\GitHub\\review-jogos-steam\\review-jogos-steam.csproj",
       "projectName": "review-jogos-steam",
-      "projectPath": "c:\\Users\\Kyeru\\OneDrive\\Outro\\Documentos\\GitHub\\review-jogos-steam\\review-jogos-steam.csproj",
-      "packagesPath": "C:\\Users\\Kyeru\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Kyeru\\OneDrive\\Outro\\Documentos\\GitHub\\review-jogos-steam\\obj\\",
+      "projectPath": "c:\\Users\\mrmis\\Documents\\GitHub\\review-jogos-steam\\review-jogos-steam.csproj",
+      "packagesPath": "C:\\Users\\mrmis\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\mrmis\\Documents\\GitHub\\review-jogos-steam\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Kyeru\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\mrmis\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6124,7 +6116,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
