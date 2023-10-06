@@ -40,12 +40,6 @@ namespace review_jogos_steam.Migrations
                     b.Property<string>("Coment")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("IdJogo")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("IdUsuario")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("JogoId")
                         .HasColumnType("INTEGER");
 

@@ -37,12 +37,12 @@ public class JogoController : ControllerBase
     }
 
     [HttpGet]
-    [Route("buscar/{idJogo}")]
-    public async Task<ActionResult<Jogo>> Buscar(int idJogo)
+    [Route("buscar/{id}")]
+    public async Task<ActionResult<Jogo>> Buscar(int id)
     {
         if (_dbContext is null) return NotFound();
         if (_dbContext.Jogo is null) return NotFound();
-        var JogoTemp = await _dbContext.Jogo.FindAsync(idJogo);
+        var JogoTemp = await _dbContext.Jogo.FindAsync(id);
         if (JogoTemp is null) return NotFound();
         return JogoTemp;
     }
@@ -61,12 +61,12 @@ public class JogoController : ControllerBase
 
 
     [HttpDelete()]
-    [Route("excluir/{idJogo}")]
-    public async Task<ActionResult> Excluir(int idJogo)
+    [Route("excluir/{id}")]
+    public async Task<ActionResult> Excluir(int id)
     {
         if (_dbContext is null) return NotFound();
         if (_dbContext.Jogo is null) return NotFound();
-        var JogoTemp = await _dbContext.Jogo.FindAsync(idJogo);
+        var JogoTemp = await _dbContext.Jogo.FindAsync(id);
         if (JogoTemp is null) return NotFound();
         _dbContext.Remove(JogoTemp);
         await _dbContext.SaveChangesAsync();

@@ -5,7 +5,7 @@
 namespace review_jogos_steam.Migrations
 {
     /// <inheritdoc />
-    public partial class fim : Migration
+    public partial class InitialMigrationm : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -13,6 +13,14 @@ namespace review_jogos_steam.Migrations
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Avaliacao",
                 table: "Avaliacao");
+
+            migrationBuilder.DropColumn(
+                name: "IdJogo",
+                table: "Comentario");
+
+            migrationBuilder.DropColumn(
+                name: "IdUsuario",
+                table: "Comentario");
 
             migrationBuilder.RenameColumn(
                 name: "Id",
@@ -332,6 +340,20 @@ namespace review_jogos_steam.Migrations
                 name: "Nota",
                 table: "Avaliacao",
                 newName: "Id");
+
+            migrationBuilder.AddColumn<int>(
+                name: "IdJogo",
+                table: "Comentario",
+                type: "INTEGER",
+                nullable: false,
+                defaultValue: 0);
+
+            migrationBuilder.AddColumn<int>(
+                name: "IdUsuario",
+                table: "Comentario",
+                type: "INTEGER",
+                nullable: false,
+                defaultValue: 0);
 
             migrationBuilder.AlterColumn<int>(
                 name: "Id",

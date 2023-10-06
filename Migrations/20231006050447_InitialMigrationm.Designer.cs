@@ -11,8 +11,8 @@ using review_jogos_steam.Data;
 namespace review_jogos_steam.Migrations
 {
     [DbContext(typeof(ReviewDbContext))]
-    [Migration("20231006025816_fim")]
-    partial class fim
+    [Migration("20231006050447_InitialMigrationm")]
+    partial class InitialMigrationm
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,12 +42,6 @@ namespace review_jogos_steam.Migrations
 
                     b.Property<string>("Coment")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("IdJogo")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("IdUsuario")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("JogoId")
                         .HasColumnType("INTEGER");
