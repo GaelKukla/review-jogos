@@ -1,8 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 namespace review_jogos_steam.Models;
+using review_jogos_steam.Models;
 
 public class Avaliacao
 {
     [Key]
-    public int Id { get; set; }
+    public int IdAvaliacao { get; set; }
+
+    public int Nota{get; set;}
+    
+
 }
