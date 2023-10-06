@@ -32,16 +32,16 @@ Criamos uma aplicação BakcEnd com o objetivo de realizar a avaliação de jogo
 <br>
 <p> A aplicação contém 10 Controllers, que foram divididas entre os membros da equipe(incluindo o ChatGPT), estas Controllers são(Contendo ao lado quem o membro da equipe que fez a Controller):</p>
 <ul>
-<li> <a href="Controller/UsuarioController.cs">UsuarioController</a>  Feito por Gabriel Martins Delfes.</li>
-<li> <a href="Controller/AvaliacaoController.cs">AvaliacaoController</a> - Feito por Pedro Henrique Cagol.</li>
-<li> <a href="Controller/JogoController.cs">JogoController</a> - Feito por Pedro Henrique Cagol.</li>
-<li> <a href="Controller/DesenvolvedorController.cs">DesenvolvedorController</a> - Feito por Gabriel Martins Delfes.</li>
-<li> <a href="Controller/ComentarioController.cs">ComentarioController</a> - Feito por Gael Huk Kukla.</li>
-<li> <a href="Controller/ImagemController.cs">ImagemController</a> - Feito pelo ChatGPT.</li>
-<li> <a href="Controller/TagController.cs">TagController</a> - Feito pelo ChatGPT.</li>
-<li> <a href="Controller/PlataformaController.cs">PlataformaController</a> - Feito por Gael Huk Kukla.</li>
-<li> <a href="Controller/GeneroController.cs">GeneroController</a> - Feito por Gabriell de Souza Zappelini.</li>
-<li> <a href="Controller/ConquistaController.cs">ConquistaController</a> - Feito por Gabriell de Souza Zappelini.</li>
+<li> <a href="Controllers/UsuarioController.cs">UsuarioController</a>  Feito por Gabriel Martins Delfes.</li>
+<li> <a href="Controllers/AvaliacaoController.cs">AvaliacaoController</a> - Feito por Pedro Henrique Cagol.</li>
+<li> <a href="Controllers/JogoController.cs">JogoController</a> - Feito por Pedro Henrique Cagol.</li>
+<li> <a href="Controllers/DesenvolvedorController.cs">DesenvolvedorController</a> - Feito por Gabriel Martins Delfes.</li>
+<li> <a href="Controllers/ComentarioController.cs">ComentarioController</a> - Feito por Gael Huk Kukla.</li>
+<li> <a href="Controllers/ImagemController.cs">ImagemController</a> - Feito pelo ChatGPT.</li>
+<li> <a href="Controllers/TagController.cs">TagController</a> - Feito pelo ChatGPT.</li>
+<li> <a href="Controllers/PlataformaController.cs">PlataformaController</a> - Feito por Gael Huk Kukla.</li>
+<li> <a href="Controllers/GeneroController.cs">GeneroController</a> - Feito por Gabriell de Souza Zappelini.</li>
+<li> <a href="Controllers/ConquistaController.cs">ConquistaController</a> - Feito por Gabriell de Souza Zappelini.</li>
 </ul>
 
 ### Diagrama:
