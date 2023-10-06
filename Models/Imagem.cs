@@ -1,8 +1,13 @@
-using System.ComponentModel.DataAnnotations;
-namespace review_jogos_steam.Models;
+// Feito pelo GPT
 
-public class Imagem
+using System.ComponentModel.DataAnnotations;
+
+namespace review_jogos_steam.Models
 {
-    [Key]
-    public int Id { get; set; }
+    public class Imagem
+    {
+        [Key]
+        public int IdImagem { get; set; }
+        public string Url { get; set; }
+    }
 }

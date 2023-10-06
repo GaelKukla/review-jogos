@@ -6030,19 +6030,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\phcag\\.nuget\\packages\\": {}
+    "C:\\Users\\Kyeru\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\phcag\\Documents\\Dev\\C#\\review-jogos-steam\\review-jogos-steam.csproj",
+      "projectUniqueName": "C:\\Users\\Kyeru\\OneDrive\\Outro\\Documentos\\GitHub\\review-jogos-steam\\review-jogos-steam.csproj",
       "projectName": "review-jogos-steam",
-      "projectPath": "C:\\Users\\phcag\\Documents\\Dev\\C#\\review-jogos-steam\\review-jogos-steam.csproj",
-      "packagesPath": "C:\\Users\\phcag\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\phcag\\Documents\\Dev\\C#\\review-jogos-steam\\obj\\",
+      "projectPath": "C:\\Users\\Kyeru\\OneDrive\\Outro\\Documentos\\GitHub\\review-jogos-steam\\review-jogos-steam.csproj",
+      "packagesPath": "C:\\Users\\Kyeru\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Kyeru\\OneDrive\\Outro\\Documentos\\GitHub\\review-jogos-steam\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\phcag\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Kyeru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6050,6 +6055,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

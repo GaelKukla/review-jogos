@@ -1,8 +1,14 @@
-using System.ComponentModel.DataAnnotations;
-namespace review_jogos_steam.Models;
+// Parte feita pelo GPT
 
-public class Tag
+using System.ComponentModel.DataAnnotations;
+
+namespace review_jogos_steam.Models
 {
-    [Key]
-    public int Id { get; set; }
+    public class Tag
+    {
+        [Key]
+        public int IdTag { get; set; } // Identificador único da tag
+        public string Nome { get; set; } // Nome da tag
+        public string Descricao { get; set; } // Descrição da tag
+    }
 }
