@@ -1,9 +1,40 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Tag } from './Tag';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type' : 'application/json'
+  })
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class TagsService {
-
-  constructor() { }
+  apiUrl = 'http://localhost:5000/Tag';
+  constructor(private http: HttpClient) { }
+  listar(): Observable<Tag[]> {
+    const url = `${this.apiUrl}/listar`;
+    return this.http.get<Tag[]>(url);
+  }
+  buscar(id: number): Observable<Tag> {
+    const url = `${this.apiUrl}/buscar/${id}`;
+    return this.http.get<Tag>(url);
+  }
+  cadastrar(tag: Tag): Observable<any> {
+    const url = `${this.apiUrl}/cadastrar`;
+    return this.http.post<Tag>(url, tag, httpOptions);
+  }
+  atualizar(tag: Tag): Observable<any> {
+    const url = `${this.apiUrl}/atualizar`;
+    return this.http.put<Tag>(url, tag, httpOptions);
+  }
+  excluir(id: number): Observable<any> {
+    const url = `${this.apiUrl}/buscar/${id}`;
+    return this.http.delete<number>(url, httpOptions);
+  }
 }
+
+
