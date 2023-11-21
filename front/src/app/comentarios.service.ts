@@ -26,8 +26,8 @@ export class ComentariosService {
     const url = `${this.apiUrl}/cadastrar`;
     return this.http.post<Comentario>(url, comentario, httpOptions);
   }
-  atualizar(comentario: Comentario): Observable<any> {
-    const url = `${this.apiUrl}/atualizar`;
+  alterar(comentario: Comentario): Observable<any> {
+    const url = `${this.apiUrl}/alterar`;
     return this.http.put<Comentario>(url, comentario, httpOptions);
   }
   excluir(id: number): Observable<any> {

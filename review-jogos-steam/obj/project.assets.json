@@ -6030,19 +6030,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kyeru\\.nuget\\packages\\": {}
+    "C:\\Users\\gabri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kyeru\\Documents\\GitHub\\review-jogos-steam\\review-jogos-steam\\review-jogos-steam.csproj",
+      "projectUniqueName": "C:\\Users\\gabri\\Documents\\GitHub\\review-jogos-steam\\review-jogos-steam\\review-jogos-steam.csproj",
       "projectName": "review-jogos-steam",
-      "projectPath": "C:\\Users\\Kyeru\\Documents\\GitHub\\review-jogos-steam\\review-jogos-steam\\review-jogos-steam.csproj",
-      "packagesPath": "C:\\Users\\Kyeru\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kyeru\\Documents\\GitHub\\review-jogos-steam\\review-jogos-steam\\obj\\",
+      "projectPath": "C:\\Users\\gabri\\Documents\\GitHub\\review-jogos-steam\\review-jogos-steam\\review-jogos-steam.csproj",
+      "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gabri\\Documents\\GitHub\\review-jogos-steam\\review-jogos-steam\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Kyeru\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -6116,7 +6116,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
