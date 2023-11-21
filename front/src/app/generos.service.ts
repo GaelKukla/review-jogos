@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class GenerosService {
-  apiUrl = 'http://localhost:5000/Generos'
+  apiUrl = 'http://localhost:5000/Genero'
   constructor(private http: HttpClient) { }
   listar(): Observable<Genero[]> {
     const url = `${this.apiUrl}/listar`;
