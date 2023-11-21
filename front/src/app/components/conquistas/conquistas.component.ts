@@ -34,7 +34,7 @@ export class ConquistasComponent implements OnInit {
   }
   enviarFormulario(): void {
     console.log('Método enviarFormulario() chamado.');
-    const jogo: Jogo = this.formulario.value;
+    const conquista: Conquista = this.formulario.value;
     const observer: Observer<Conquista> = {
         next(_result): void{
           alert('Modelo salvo com sucesso.');
@@ -45,10 +45,10 @@ export class ConquistasComponent implements OnInit {
         complete(): void {
         },
         };
-      if (jogo.id && !isNaN(Number(jogo.id))){
-        this.jogosService.atualizar(jogo).subscribe(observer);
+      if (conquista.idConquista && !isNaN(Number(conquista.idConquista))){
+        this.conquistasService.alterar(conquista).subscribe(observer);
       } else{
-        this.jogosService.cadastrar(jogo).subscribe(observer);
+        this.conquistasService.cadastrar(conquista).subscribe(observer);
       }
     }
 }
