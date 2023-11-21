@@ -27,8 +27,8 @@ export class ImagensService {
     const url = `${this.apiUrl}/cadastrar`;
     return this.http.post<Imagem>(url, imagem, httpOptions);
   }
-  atualizar(imagem: Imagem): Observable<any> {
-    const url = `${this.apiUrl}/atualizar`;
+  alterar(imagem: Imagem): Observable<any> {
+    const url = `${this.apiUrl}/alterar`;
     return this.http.put<Imagem>(url, imagem, httpOptions);
   }
   excluir(id: number): Observable<any> {

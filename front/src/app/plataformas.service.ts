@@ -26,8 +26,8 @@ export class PlataformasService {
     const url = `${this.apiUrl}/cadastrar`;
     return this.http.post<Plataforma>(url, plataforma, httpOptions);
   }
-  atualizar(plataforma: Plataforma): Observable<any> {
-    const url = `${this.apiUrl}/atualizar`;
+  alterar(plataforma: Plataforma): Observable<any> {
+    const url = `${this.apiUrl}/alterar`;
     return this.http.put<Plataforma>(url, plataforma, httpOptions);
   }
   excluir(id: number): Observable<any> {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DesenvolvedorService } from 'src/app/desenvolvedores.service';
 import { Desenvolvedor } from 'src/app/Desenvolvedor';
+import { Observer } from 'rxjs';
 
 @Component({
   selector: 'app-desenvolvedores',
@@ -24,9 +25,22 @@ export class DesenvolvedoresComponent implements OnInit {
     })
   }
   enviarFormulario(): void {
-    const usuario : Desenvolvedor = this.formulario.value;
-    this.desenvolvedoresService.cadastrar(usuario).subscribe(result => {
-      alert('Desenvolvedor inserido com sucesso.');
-    })
-  }
+    console.log('Método enviarFormulario() chamado.');
+    const desenvolvedor: Desenvolvedor = this.formulario.value;
+    const observer: Observer<Desenvolvedor> = {
+        next(_result): void{
+          alert('Modelo salvo com sucesso.');
+        },
+        error(_error): void {
+          alert('Erro ao salvar!');
+        },
+        complete(): void {
+        },
+        };
+      if (desenvolvedor.iddesenvolvedor && !isNaN(Number(desenvolvedor.iddesenvolvedor))){
+        this.desenvolvedoresService.alterar(desenvolvedor).subscribe(observer);
+      } else{
+        this.desenvolvedoresService.cadastrar(desenvolvedor).subscribe(observer);
+      }
+    }
 }

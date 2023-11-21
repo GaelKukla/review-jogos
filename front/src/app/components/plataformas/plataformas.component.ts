@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { PlataformasService } from 'src/app/plataformas.service';
 import { Plataforma } from 'src/app/Plataforma';
+import { Observer } from 'rxjs';
 
 @Component({
   selector: 'app-plataformas',
@@ -22,9 +23,22 @@ export class PlataformasComponent implements OnInit {
     })
   }
   enviarFormulario(): void {
-    const plataforma : Plataforma = this.formulario.value;
-    this.plataformasService.cadastrar(plataforma).subscribe(result => {
-      alert('Plataforma inserida com sucesso.');
-    })
-  }
+    console.log('Método enviarFormulario() chamado.');
+    const plataforma: Plataforma = this.formulario.value;
+    const observer: Observer<Plataforma> = {
+        next(_result): void{
+          alert('Modelo salvo com sucesso.');
+        },
+        error(_error): void {
+          alert('Erro ao salvar!');
+        },
+        complete(): void {
+        },
+        };
+      if (plataforma.id && !isNaN(Number(plataforma.id))){
+        this.plataformasService.alterar(plataforma).subscribe(observer);
+      } else{
+        this.plataformasService.cadastrar(plataforma).subscribe(observer);
+      }
+    }
 }

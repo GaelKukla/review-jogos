@@ -4,6 +4,8 @@ import { ComentariosService } from 'src/app/comentarios.service';
 import { Comentario } from 'src/app/Comentario';
 import { Avaliacao } from 'src/app/Avaliacao';
 import { AvaliacoesService } from './../../avaliacoes.service';
+import { Observer } from 'rxjs';
+
 
 @Component({
   selector: 'app-comentarios',
@@ -34,9 +36,22 @@ export class ComentariosComponent implements OnInit {
     })
   }
   enviarFormulario(): void {
-    const comentario : Comentario = this.formulario.value;
-    this.comentariosService.cadastrar(comentario).subscribe(result => {
-      alert('Comentario inserido com sucesso.');
-    })
-  }
+    console.log('Método enviarFormulario() chamado.');
+    const comentario: Comentario = this.formulario.value;
+    const observer: Observer<Comentario> = {
+        next(_result): void{
+          alert('Modelo salvo com sucesso.');
+        },
+        error(_error): void {
+          alert('Erro ao salvar!');
+        },
+        complete(): void {
+        },
+        };
+      if (comentario.idComentario && !isNaN(Number(comentario.idComentario))){
+        this.comentariosService.alterar(comentario).subscribe(observer);
+      } else{
+        this.comentariosService.cadastrar(comentario).subscribe(observer);
+      }
+    }
 }

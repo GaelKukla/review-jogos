@@ -26,8 +26,8 @@ export class AvaliacoesService {
     const url = `${this.apiUrl}/cadastrar`;
     return this.http.post<Avaliacao>(url, avaliacao, httpOptions);
   }
-  atualizar(avaliacao: Avaliacao): Observable<any> {
-    const url = `${this.apiUrl}/atualizar`;
+  alterar(avaliacao: Avaliacao): Observable<any> {
+    const url = `${this.apiUrl}/alterar`;
     return this.http.put<Avaliacao>(url, avaliacao, httpOptions);
   }
   excluir(id: number): Observable<any> {

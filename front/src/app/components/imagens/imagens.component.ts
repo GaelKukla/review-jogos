@@ -4,6 +4,7 @@ import { ImagensService } from 'src/app/imagens.service';
 import { Imagem } from 'src/app/Imagem';
 import { Jogo } from 'src/app/Jogo';
 import { JogosService } from 'src/app/jogos.service';
+import { Observer } from 'rxjs';
 
 @Component({
   selector: 'app-imagens',
@@ -33,9 +34,22 @@ export class ImagensComponent implements OnInit {
     })
   }
   enviarFormulario(): void {
-    const imagem : Imagem = this.formulario.value;
-    this.imagensService.cadastrar(imagem).subscribe(result => {
-      alert('Imagem inserido com sucesso.');
-    })
-  }
+    console.log('Método enviarFormulario() chamado.');
+    const imagem: Imagem = this.formulario.value;
+    const observer: Observer<Imagem> = {
+        next(_result): void{
+          alert('Modelo salvo com sucesso.');
+        },
+        error(_error): void {
+          alert('Erro ao salvar!');
+        },
+        complete(): void {
+        },
+        };
+      if (imagem.id&& !isNaN(Number(imagem.id))){
+        this.imagensService.alterar(imagem).subscribe(observer);
+      } else{
+        this.imagensService.cadastrar(imagem).subscribe(observer);
+      }
+    }
 }

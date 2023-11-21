@@ -27,8 +27,8 @@ export class TagsService {
     const url = `${this.apiUrl}/cadastrar`;
     return this.http.post<Tag>(url, tag, httpOptions);
   }
-  atualizar(tag: Tag): Observable<any> {
-    const url = `${this.apiUrl}/atualizar`;
+  alterar(tag: Tag): Observable<any> {
+    const url = `${this.apiUrl}/alterar`;
     return this.http.put<Tag>(url, tag, httpOptions);
   }
   excluir(id: number): Observable<any> {

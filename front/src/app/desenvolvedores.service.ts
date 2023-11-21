@@ -26,8 +26,8 @@ export class DesenvolvedorService {
     const url = `${this.apiUrl}/cadastrar`;
     return this.http.post<Desenvolvedor>(url, desenvolvedor, httpOptions);
   }
-  atualizar(desenvolvedor: Desenvolvedor): Observable<any> {
-    const url = `${this.apiUrl}/atualizar`;
+  alterar(desenvolvedor: Desenvolvedor): Observable<any> {
+    const url = `${this.apiUrl}/alterar`;
     return this.http.put<Desenvolvedor>(url, desenvolvedor, httpOptions);
   }
   excluir(id: number): Observable<any> {

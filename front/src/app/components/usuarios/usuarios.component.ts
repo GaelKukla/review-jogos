@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UsuarioService } from 'src/app/usuarios.service';
 import { Usuario } from 'src/app/Usuario';
+import { Observer } from 'rxjs';
 
 @Component({
   selector: 'app-usuarios',
@@ -25,9 +26,22 @@ export class UsuariosComponent implements OnInit {
     })
   }
   enviarFormulario(): void {
-    const usuario : Usuario = this.formulario.value;
-    this.usuariosService.cadastrar(usuario).subscribe(result => {
-      alert('Usuario inserido com sucesso.');
-    })
-  }
+    console.log('Método enviarFormulario() chamado.');
+    const usuario: Usuario = this.formulario.value;
+    const observer: Observer<Usuario> = {
+        next(_result): void{
+          alert('Modelo salvo com sucesso.');
+        },
+        error(_error): void {
+          alert('Erro ao salvar!');
+        },
+        complete(): void {
+        },
+        };
+      if (usuario.idUsuario && !isNaN(Number(usuario.idUsuario))){
+        this.usuariosService.alterar(usuario).subscribe(observer);
+      } else{
+        this.usuariosService.cadastrar(usuario).subscribe(observer);
+      }
+    }
 }

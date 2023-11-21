@@ -27,8 +27,8 @@ export class JogosService {
     const url = `${this.apiUrl}/cadastrar`;
     return this.http.post<Jogo>(url, jogo, httpOptions);
   }
-  atualizar(jogo: Jogo): Observable<any> {
-    const url = `${this.apiUrl}/atualizar`;
+  alterar(jogo: Jogo): Observable<any> {
+    const url = `${this.apiUrl}/alterar`;
     return this.http.put<Jogo>(url, jogo, httpOptions);
   }
   excluir(id: number): Observable<any> {

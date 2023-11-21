@@ -26,8 +26,8 @@ export class UsuarioService {
     const url = `${this.apiUrl}/cadastrar`;
     return this.http.post<Usuario>(url, usuario, httpOptions);
   }
-  atualizar(usuario: Usuario): Observable<any> {
-    const url = `${this.apiUrl}/atualizar`;
+  alterar(usuario: Usuario): Observable<any> {
+    const url = `${this.apiUrl}/alterar`;
     return this.http.put<Usuario>(url, usuario, httpOptions);
   }
   excluir(id: number): Observable<any> {
