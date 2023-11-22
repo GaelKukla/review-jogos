@@ -29,7 +29,7 @@ public class GeneroController : ControllerBase
     }
     
     [HttpGet()]
-    [Route("Listar")]
+    [Route("listar")]
     public async Task<ActionResult<IEnumerable<Genero>>> Listar()
     {
         if(_dbContext is null) return NotFound();
@@ -38,7 +38,7 @@ public class GeneroController : ControllerBase
     }
 
     [HttpGet()]
-    [Route("Buscar{idGenero}")]
+    [Route("buscar{idGenero}")]
     public async Task<ActionResult<Genero>> Buscar(int idGenero)
     {
         if(_dbContext is null) return NotFound();
@@ -49,7 +49,7 @@ public class GeneroController : ControllerBase
     }
 
     [HttpPut()]
-    [Route("Alterar")]
+    [Route("alterar")]
     public async Task<ActionResult> Alterar(Genero genero)
     {
         if(_dbContext is null) return NotFound();
@@ -60,7 +60,7 @@ public class GeneroController : ControllerBase
     }
 
     [HttpDelete()]
-    [Route("Excluir{idGenero}")]
+    [Route("excluir{idGenero}")]
     public async Task<ActionResult> Excluir(int idGenero)
     {
         if(_dbContext is null) return NotFound();

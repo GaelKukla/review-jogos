@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TagsService } from 'src/app/tags.service';
 import { Tag } from 'src/app/Tag';
+import { Observer } from 'rxjs';
+
 
 @Component({
   selector: 'app-tags',
@@ -22,9 +24,22 @@ export class TagsComponent implements OnInit {
     })
   }
   enviarFormulario(): void {
-    const tag : Tag = this.formulario.value;
-    this.tagService.cadastrar(tag).subscribe(result => {
-      alert('Tag inserida com sucesso.');
-    })
-  }
+    console.log('Método enviarFormulario() chamado.');
+    const tag: Tag = this.formulario.value;
+    const observer: Observer<Tag> = {
+        next(_result): void{
+          alert('Modelo salvo com sucesso.');
+        },
+        error(_error): void {
+          alert('Erro ao salvar!');
+        },
+        complete(): void {
+        },
+        };
+      if (tag.id && !isNaN(Number(tag.id))){
+        this.tagService.alterar(tag).subscribe(observer);
+      } else{
+        this.tagService.cadastrar(tag).subscribe(observer);
+      }
+    }
 }

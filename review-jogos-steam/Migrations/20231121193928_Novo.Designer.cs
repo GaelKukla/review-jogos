@@ -11,8 +11,8 @@ using review_jogos_steam.Data;
 namespace review_jogos_steam.Migrations
 {
     [DbContext(typeof(ReviewDbContext))]
-    [Migration("20231120174828_ajeitando")]
-    partial class ajeitando
+    [Migration("20231121193928_Novo")]
+    partial class Novo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

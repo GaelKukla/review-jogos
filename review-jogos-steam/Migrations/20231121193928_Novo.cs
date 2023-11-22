@@ -5,7 +5,7 @@
 namespace review_jogos_steam.Migrations
 {
     /// <inheritdoc />
-    public partial class ajeitando : Migration
+    public partial class Novo : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

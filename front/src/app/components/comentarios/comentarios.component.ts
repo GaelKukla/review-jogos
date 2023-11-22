@@ -25,15 +25,16 @@ export class ComentariosComponent implements OnInit {
     this.avaliacoesService.listar().subscribe(avaliacoes => {
       this.avaliacoes = avaliacoes;
       if (this.avaliacoes && this.avaliacoes.length > 0) {
-        this.formulario.get('avaiacaoId')?.setValue(this.avaliacoes[0].id);
+        this.formulario.get('avaliacaoId')?.setValue(this.avaliacoes[0].id);
       }
     });
 
 
     this.formulario = new FormGroup({
-      id: new FormControl(null),
-      coment: new FormControl(null)
-    })
+      coment: new FormControl(null),
+      avaliacaoId: new FormControl(null)
+    });
+    console.log(this.formulario.avaliacaoId)
   }
   enviarFormulario(): void {
     console.log('Método enviarFormulario() chamado.');
@@ -44,6 +45,7 @@ export class ComentariosComponent implements OnInit {
         },
         error(_error): void {
           alert('Erro ao salvar!');
+
         },
         complete(): void {
         },

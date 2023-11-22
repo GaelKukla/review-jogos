@@ -17,7 +17,7 @@ public class ConquistaController : ControllerBase
     }
 
     [HttpPost()]
-    [Route("Cadastrar")]
+    [Route("cadastrar")]
     public async Task<ActionResult> Cadastrar(Conquista conquista)
     {
         if(_dbContext is null) return NotFound();
@@ -28,7 +28,7 @@ public class ConquistaController : ControllerBase
     }
     
     [HttpGet()]
-    [Route("Listar")]
+    [Route("listar")]
     public async Task<ActionResult<IEnumerable<Conquista>>> Listar()
     {
         if(_dbContext is null) return NotFound();
@@ -37,7 +37,7 @@ public class ConquistaController : ControllerBase
     }
 
     [HttpGet()]
-    [Route("Buscar/{idConquista}")]
+    [Route("buscar/{idConquista}")]
     public async Task<ActionResult<Conquista>> Buscar(int idConquista)
     {
         if(_dbContext is null) return NotFound();
@@ -48,7 +48,7 @@ public class ConquistaController : ControllerBase
     }
 
     [HttpPut()]
-    [Route("Alterar")]
+    [Route("alterar")]
     public async Task<ActionResult> Alterar(Conquista conquista)
     {
         if(_dbContext is null) return NotFound();
@@ -59,7 +59,7 @@ public class ConquistaController : ControllerBase
     }
 
     [HttpDelete()]
-    [Route("Excluir/{idConquista}")]
+    [Route("excluir/{idConquista}")]
     public async Task<ActionResult> Excluir(int idConquista)
     {
         if(_dbContext is null) return NotFound();
