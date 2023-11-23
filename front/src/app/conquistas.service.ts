@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ConquistasService {
-  apiUrl = 'http://localhost:5000/Conquista'
+  apiUrl = 'http://localhost:5000/conquista'
   constructor(private http: HttpClient) { }
   listar(): Observable<Conquista[]> {
     const url = `${this.apiUrl}/listar`;

@@ -141,9 +141,9 @@ namespace review_jogos_steam.Migrations
                 {
                     IdConquista = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    JogoId = table.Column<int>(type: "INTEGER", nullable: false),
                     Tipo = table.Column<string>(type: "TEXT", nullable: true),
-                    Descricao = table.Column<string>(type: "TEXT", nullable: true)
+                    Descricao = table.Column<string>(type: "TEXT", nullable: true),
+                    JogoId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -152,8 +152,7 @@ namespace review_jogos_steam.Migrations
                         name: "FK_Conquista_Jogo_JogoId",
                         column: x => x.JogoId,
                         principalTable: "Jogo",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(

@@ -11,7 +11,7 @@ using review_jogos_steam.Data;
 namespace review_jogos_steam.Migrations
 {
     [DbContext(typeof(ReviewDbContext))]
-    [Migration("20231121193928_Novo")]
+    [Migration("20231123182727_Novo")]
     partial class Novo
     {
         /// <inheritdoc />
@@ -87,7 +87,7 @@ namespace review_jogos_steam.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("JogoId")
+                    b.Property<int?>("JogoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Tipo")
@@ -269,13 +269,9 @@ namespace review_jogos_steam.Migrations
 
             modelBuilder.Entity("review_jogos_steam.Models.Conquista", b =>
                 {
-                    b.HasOne("review_jogos_steam.Models.Jogo", "Jogo")
+                    b.HasOne("review_jogos_steam.Models.Jogo", null)
                         .WithMany("Conquistas")
-                        .HasForeignKey("JogoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Jogo");
+                        .HasForeignKey("JogoId");
                 });
 
             modelBuilder.Entity("review_jogos_steam.Models.Imagem", b =>

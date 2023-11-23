@@ -3,12 +3,6 @@
       <div class="col-6 border border-light rounded p-5 shadow" *ngIf="formulario">
         <h6>{{ tituloFormulario }}</h6>
         <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
-            <div class="form-group">
-                <label>Jogo</label>
-                <select class="form-control form-control-sm" formControlName="jogoId">
-                <option *ngFor="let jogo of jogos" [value]="jogo.idJogo">{{ jogo.nome }}</option>
-                </select>
-            </div>
           <div class="form-group">
             <label>Tipo</label>
             <input

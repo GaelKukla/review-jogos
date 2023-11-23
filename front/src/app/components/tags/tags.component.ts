@@ -36,7 +36,7 @@ export class TagsComponent implements OnInit {
         complete(): void {
         },
         };
-      if (tag.id && !isNaN(Number(tag.id))){
+      if (tag.idTag && !isNaN(Number(tag.idTag))){
         this.tagService.alterar(tag).subscribe(observer);
       } else{
         this.tagService.cadastrar(tag).subscribe(observer);

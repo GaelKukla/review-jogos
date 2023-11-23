@@ -9,7 +9,6 @@ namespace review_jogos_steam.Models
         [Key]
         public int IdImagem { get; set; }
         public string? Url { get; set; }
-
         public int? JogoId { get; set; }
         public Jogo? Jogo { get; set; }
     }

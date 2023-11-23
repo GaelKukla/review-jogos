@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AvaliacoesService {
-  apiUrl = 'http://localhost:5000/Avaliacao';
+  apiUrl = 'http://localhost:5000/avaliacao';
   constructor(private http: HttpClient) { }
   listar(): Observable<Avaliacao[]> {
     const url = `${this.apiUrl}/listar`;

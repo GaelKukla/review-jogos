@@ -12,45 +12,44 @@ import { Observer } from 'rxjs';
   styleUrls: ['./avaliacoes.component.css']
 })
 export class AvaliacoesComponent implements OnInit {
-  formulario: any;
+  formularioAvaliacao: any;
   tituloFormulario: string = '';
   jogos: Array<Jogo> | undefined;
   constructor(private avaliacaoService : AvaliacoesService, private jogosService: JogosService) { }
 
   ngOnInit(): void {
     this.tituloFormulario = 'Nova Avaliação';
+    
     this.jogosService.listar().subscribe(jogos => {
       this.jogos = jogos;
       if (this.jogos && this.jogos.length > 0){
-        this.formulario.get('jogoId')?.setValue(this.jogos[0].idJogo);
+        this.formularioAvaliacao.get('jogoId')?.setValue(this.jogos[0].idJogo);
       }
     });
 
-    this.formulario = new FormGroup({
+    this.formularioAvaliacao = new FormGroup({
       jogoId: new FormControl(null),
       nota: new FormControl(null)
     });
   }
-  getNumeros(): number[] {
-    return [1, 2, 3, 4, 5];
-  }
   enviarFormulario(): void {
     console.log('Método enviarFormulario() chamado.');
-    const avaliacao: Avaliacao = this.formulario.value;
+    const avaliacao: Avaliacao = this.formularioAvaliacao.value;
     const observer: Observer<Avaliacao> = {
-        next(_result): void{
-          alert('Modelo salvo com sucesso.');
-        },
-        error(_error): void {
-          alert('Erro ao salvar!');
-        },
-        complete(): void {
-        },
-        };
-      if (avaliacao.idAvaliacao && !isNaN(Number(avaliacao.idAvaliacao))){
-        this.avaliacaoService.alterar(avaliacao).subscribe(observer);
-      } else{
-        this.avaliacaoService.cadastrar(avaliacao).subscribe(observer);
-      }
+      next(_result): void {
+        alert('Modelo salvo com sucesso.');
+      },
+      error(_error): void {
+        alert('Erro ao salvar!');
+      },
+      complete(): void {
+      },
+    };
+
+    if (avaliacao.idAvaliacao && !isNaN(Number(avaliacao.idAvaliacao))) {
+      this.avaliacaoService.alterar(avaliacao).subscribe(observer);
+    } else {
+      this.avaliacaoService.cadastrar(avaliacao).subscribe(observer);
     }
+  }
 }

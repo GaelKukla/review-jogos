@@ -46,7 +46,7 @@ export class ImagensComponent implements OnInit {
         complete(): void {
         },
         };
-      if (imagem.id&& !isNaN(Number(imagem.id))){
+      if (imagem.idImagem&& !isNaN(Number(imagem.idImagem))){
         this.imagensService.alterar(imagem).subscribe(observer);
       } else{
         this.imagensService.cadastrar(imagem).subscribe(observer);

@@ -14,21 +14,14 @@ import { Observer } from 'rxjs';
 export class ConquistasComponent implements OnInit {
   formularioConquista: any;
   tituloFormulario: string = '';
-  jogos: Array<Jogo> | undefined;
   constructor(private conquistasService : ConquistasService, private jogosService: JogosService) { }
 
   ngOnInit(): void {
     this.tituloFormulario = 'Nova Conquista';
 
-    this.jogosService.listar().subscribe(jogos => {
-      this.jogos = jogos;
-      if (this.jogos && this.jogos.length > 0){
-        this.formularioConquista.get('jogoId')?.setValue(this.jogos[0].idJogo);
-      }
-    });
+
 
     this.formularioConquista = new FormGroup({
-      jogoId: new FormControl(null),
       tipo: new FormControl(null),
       descricao: new FormControl(null)
     })
@@ -49,7 +42,6 @@ export class ConquistasComponent implements OnInit {
       if (conquista.idConquista && !isNaN(Number(conquista.idConquista))){
         this.conquistasService.alterar(conquista).subscribe(observer);
       } else{
-        console.log(conquista.jogoId)
         this.conquistasService.cadastrar(conquista).subscribe(observer);
       }
     }

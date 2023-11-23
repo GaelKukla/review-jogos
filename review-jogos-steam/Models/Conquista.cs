@@ -5,8 +5,6 @@ public class Conquista
 {
     [Key]
     public int IdConquista { get; set; }
-    public int JogoId { get; set; }
-    public Jogo? Jogo { get; set; }
     public string? Tipo { get; set; }
     public string? Descricao { get; set; }
 }

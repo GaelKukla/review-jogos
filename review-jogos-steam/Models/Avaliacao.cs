@@ -9,7 +9,5 @@ public class Avaliacao
     public int? JogoID { get; set; }
     public Jogo? Jogo { get; set; }
     public int Nota{get; set;}
-    
-
 
 }

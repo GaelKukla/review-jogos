@@ -17,7 +17,7 @@ import { DesenvolvedorService } from 'src/app/desenvolvedores.service';
   styleUrls: ['./jogos.component.css']
 })
 export class JogosComponent implements OnInit {
-  formularioAvaliacao: any;
+  formularioJogo: any;
   tituloFormulario: string = '';
   plataformas: Array<Plataforma> | undefined;
   generos: Array<Genero> | undefined;
@@ -34,25 +34,25 @@ export class JogosComponent implements OnInit {
     this.generosService.listar().subscribe(generos => {
       this.generos = generos;
       if (this.generos && this.generos.length > 0){
-        this.formularioAvaliacao.get('generoId')?.setValue(this.generos[0].idGenero);
+        this.formularioJogo.get('generoId')?.setValue(this.generos[0].idGenero);
       }
     });
 
     this.plataformasService.listar().subscribe(plataformas => {
       this.plataformas = plataformas;
       if (this.plataformas && this.plataformas.length > 0){
-        this.formularioAvaliacao.get('plataformaId')?.setValue(this.plataformas[0].idPlataforma);
+        this.formularioJogo.get('plataformaId')?.setValue(this.plataformas[0].idPlataforma);
       }
     });
 
     this.desenvolvedoresService.listar().subscribe(desenvolvedores => {
       this.desenvolvedores = desenvolvedores;
       if (this.desenvolvedores && this.desenvolvedores.length > 0){
-        this.formularioAvaliacao.get('desenvolvedorId')?.setValue(this.desenvolvedores[0].idDesenvolvedor);
+        this.formularioJogo.get('desenvolvedorId')?.setValue(this.desenvolvedores[0].idDesenvolvedor);
       }
     });
 
-    this.formularioAvaliacao = new FormGroup({
+    this.formularioJogo = new FormGroup({
       nome: new FormControl(null),
       desenvolvedorId: new FormControl(null),
       plataformaId: new FormControl(null),
@@ -61,7 +61,7 @@ export class JogosComponent implements OnInit {
   }
   enviarFormulario(): void {
     console.log('Método enviarFormularioAvaliacao() chamado.');
-    const jogo: Jogo = this.formularioAvaliacao.value;
+    const jogo: Jogo = this.formularioJogo.value;
 
     const observer: Observer<Jogo> = {
         next(_result): void{
