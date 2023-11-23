@@ -37,7 +37,7 @@ export class DesenvolvedoresComponent implements OnInit {
         complete(): void {
         },
         };
-      if (desenvolvedor.iddesenvolvedor && !isNaN(Number(desenvolvedor.iddesenvolvedor))){
+      if (desenvolvedor.idDesenvolvedor && !isNaN(Number(desenvolvedor.idDesenvolvedor))){
         this.desenvolvedoresService.alterar(desenvolvedor).subscribe(observer);
       } else{
         this.desenvolvedoresService.cadastrar(desenvolvedor).subscribe(observer);

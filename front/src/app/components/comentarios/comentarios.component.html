@@ -13,8 +13,8 @@
         </div>
         <div class="form-group">
           <label for="avaliacaoId">Avaliação</label>
-          <select class="form-control" id="avaliacaoId" formControlName="avaliacaoId">
-            <option *ngFor="let avaliacao of avaliacoes" [value]="avaliacao.id">
+          <select class="form-control" id="avaliacaoId" formControlName="avaliacaoId" type="number">
+            <option *ngFor="let avaliacao of avaliacoes" [value]="avaliacao.idAvaliacao">
               {{ avaliacao.nota }}
             </option>
           </select>

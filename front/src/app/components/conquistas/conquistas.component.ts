@@ -12,21 +12,22 @@ import { Observer } from 'rxjs';
   styleUrls: ['./conquistas.component.css']
 })
 export class ConquistasComponent implements OnInit {
-  formulario: any;
+  formularioConquista: any;
   tituloFormulario: string = '';
   jogos: Array<Jogo> | undefined;
   constructor(private conquistasService : ConquistasService, private jogosService: JogosService) { }
 
   ngOnInit(): void {
     this.tituloFormulario = 'Nova Conquista';
+
     this.jogosService.listar().subscribe(jogos => {
       this.jogos = jogos;
       if (this.jogos && this.jogos.length > 0){
-        this.formulario.get('jogoId')?.setValue(this.jogos[0].id);
+        this.formularioConquista.get('jogoId')?.setValue(this.jogos[0].idJogo);
       }
     });
 
-    this.formulario = new FormGroup({
+    this.formularioConquista = new FormGroup({
       jogoId: new FormControl(null),
       tipo: new FormControl(null),
       descricao: new FormControl(null)
@@ -34,7 +35,7 @@ export class ConquistasComponent implements OnInit {
   }
   enviarFormulario(): void {
     console.log('Método enviarFormulario() chamado.');
-    const conquista: Conquista = this.formulario.value;
+    const conquista: Conquista = this.formularioConquista.value;
     const observer: Observer<Conquista> = {
         next(_result): void{
           alert('Modelo salvo com sucesso.');
@@ -43,11 +44,12 @@ export class ConquistasComponent implements OnInit {
           alert('Erro ao salvar!');
         },
         complete(): void {
-        },
+        }
         };
       if (conquista.idConquista && !isNaN(Number(conquista.idConquista))){
         this.conquistasService.alterar(conquista).subscribe(observer);
       } else{
+        console.log(conquista.jogoId)
         this.conquistasService.cadastrar(conquista).subscribe(observer);
       }
     }

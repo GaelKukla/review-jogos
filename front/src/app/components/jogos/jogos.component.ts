@@ -17,7 +17,7 @@ import { DesenvolvedorService } from 'src/app/desenvolvedores.service';
   styleUrls: ['./jogos.component.css']
 })
 export class JogosComponent implements OnInit {
-  formulario: any;
+  formularioAvaliacao: any;
   tituloFormulario: string = '';
   plataformas: Array<Plataforma> | undefined;
   generos: Array<Genero> | undefined;
@@ -34,34 +34,34 @@ export class JogosComponent implements OnInit {
     this.generosService.listar().subscribe(generos => {
       this.generos = generos;
       if (this.generos && this.generos.length > 0){
-        this.formulario.get('genero')?.setValue(this.generos[0].idGenero);
+        this.formularioAvaliacao.get('generoId')?.setValue(this.generos[0].idGenero);
       }
     });
 
     this.plataformasService.listar().subscribe(plataformas => {
       this.plataformas = plataformas;
       if (this.plataformas && this.plataformas.length > 0){
-        this.formulario.get('plataformaId')?.setValue(this.plataformas[0].id);
+        this.formularioAvaliacao.get('plataformaId')?.setValue(this.plataformas[0].idPlataforma);
       }
     });
 
     this.desenvolvedoresService.listar().subscribe(desenvolvedores => {
       this.desenvolvedores = desenvolvedores;
       if (this.desenvolvedores && this.desenvolvedores.length > 0){
-        this.formulario.get('desenvolvedor')?.setValue(this.desenvolvedores[0].iddesenvolvedor);
+        this.formularioAvaliacao.get('desenvolvedorId')?.setValue(this.desenvolvedores[0].idDesenvolvedor);
       }
     });
 
-    this.formulario = new FormGroup({
-      plataformaId: new FormControl(null),
-      desenvolvedor: new FormControl(null),
-      genero: new FormControl(null),
+    this.formularioAvaliacao = new FormGroup({
       nome: new FormControl(null),
+      desenvolvedorId: new FormControl(null),
+      plataformaId: new FormControl(null),
+      generoId: new FormControl(null)
     })
   }
   enviarFormulario(): void {
-    console.log('Método enviarFormulario() chamado.');
-    const jogo: Jogo = this.formulario.value;
+    console.log('Método enviarFormularioAvaliacao() chamado.');
+    const jogo: Jogo = this.formularioAvaliacao.value;
 
     const observer: Observer<Jogo> = {
         next(_result): void{
@@ -73,9 +73,10 @@ export class JogosComponent implements OnInit {
         complete(): void {
         },
         };
-      if (jogo.id && !isNaN(Number(jogo.id))){
+      if (jogo.idJogo && !isNaN(Number(jogo.idJogo))){
         this.jogosService.alterar(jogo).subscribe(observer);
       } else{
+        console.log(jogo.nome," ", jogo.desenvolvedor, " ", jogo.genero, " ", jogo.plataforma)
         this.jogosService.cadastrar(jogo).subscribe(observer);
       }
     }

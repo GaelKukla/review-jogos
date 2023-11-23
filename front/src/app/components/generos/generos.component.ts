@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { GenerosService } from 'src/app/generos.service'; 
+import { GenerosService } from 'src/app/generos.service';
 import { Genero } from 'src/app/Genero';
 import { JogosService } from 'src/app/jogos.service';
 import { Jogo } from 'src/app/Jogo';
@@ -22,7 +22,7 @@ export class GenerosComponent implements OnInit {
     this.jogosService.listar().subscribe(jogos => {
       this.jogos = jogos;
       if (this.jogos && this.jogos.length > 0){
-        this.formulario.get('jogoId')?.setValue(this.jogos[0].id);
+        this.formulario.get('jogoId')?.setValue(this.jogos[0].idJogo);
       }
     });
 

@@ -35,7 +35,7 @@ export class PlataformasComponent implements OnInit {
         complete(): void {
         },
         };
-      if (plataforma.id && !isNaN(Number(plataforma.id))){
+      if (plataforma.idPlataforma && !isNaN(Number(plataforma.idPlataforma))){
         this.plataformasService.alterar(plataforma).subscribe(observer);
       } else{
         this.plataformasService.cadastrar(plataforma).subscribe(observer);

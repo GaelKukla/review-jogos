@@ -24,7 +24,7 @@ export class ImagensComponent implements OnInit {
     this.jogosService.listar().subscribe(jogos => {
       this.jogos = jogos;
       if (this.jogos && this.jogos.length > 0) {
-        this.formulario.get('jogoId')?.setValue(this.jogos[0].id);
+        this.formulario.get('jogoId')?.setValue(this.jogos[0].idJogo);
       }
     });
 

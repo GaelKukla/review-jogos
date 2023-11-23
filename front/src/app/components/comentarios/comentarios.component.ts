@@ -25,7 +25,7 @@ export class ComentariosComponent implements OnInit {
     this.avaliacoesService.listar().subscribe(avaliacoes => {
       this.avaliacoes = avaliacoes;
       if (this.avaliacoes && this.avaliacoes.length > 0) {
-        this.formulario.get('avaliacaoId')?.setValue(this.avaliacoes[0].id);
+        this.formulario.get('avaliacaoId')?.setValue(this.avaliacoes[0].idAvaliacao);
       }
     });
 
@@ -36,24 +36,26 @@ export class ComentariosComponent implements OnInit {
     });
     console.log(this.formulario.avaliacaoId)
   }
+    // comentarios.component.ts
   enviarFormulario(): void {
     console.log('Método enviarFormulario() chamado.');
     const comentario: Comentario = this.formulario.value;
-    const observer: Observer<Comentario> = {
-        next(_result): void{
-          alert('Modelo salvo com sucesso.');
-        },
-        error(_error): void {
-          alert('Erro ao salvar!');
 
-        },
-        complete(): void {
-        },
-        };
-      if (comentario.idComentario && !isNaN(Number(comentario.idComentario))){
-        this.comentariosService.alterar(comentario).subscribe(observer);
-      } else{
-        this.comentariosService.cadastrar(comentario).subscribe(observer);
-      }
+    const observer: Observer<Comentario> = {
+      next(_result): void {
+        alert('Modelo salvo com sucesso.');
+      },
+      error(_error): void {
+        alert('Erro ao salvar!');
+      },
+      complete(): void {},
+    };
+
+    if (comentario.idComentario && !isNaN(Number(comentario.idComentario))) {
+      this.comentariosService.alterar(comentario).subscribe(observer);
+    } else {
+      this.comentariosService.cadastrar(comentario).subscribe(observer);
     }
+  }
+
 }

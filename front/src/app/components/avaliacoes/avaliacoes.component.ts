@@ -22,14 +22,14 @@ export class AvaliacoesComponent implements OnInit {
     this.jogosService.listar().subscribe(jogos => {
       this.jogos = jogos;
       if (this.jogos && this.jogos.length > 0){
-        this.formulario.get('jogoId')?.setValue(this.jogos[0].id);
+        this.formulario.get('jogoId')?.setValue(this.jogos[0].idJogo);
       }
     });
 
     this.formulario = new FormGroup({
       jogoId: new FormControl(null),
       nota: new FormControl(null)
-    })
+    });
   }
   getNumeros(): number[] {
     return [1, 2, 3, 4, 5];
@@ -47,7 +47,7 @@ export class AvaliacoesComponent implements OnInit {
         complete(): void {
         },
         };
-      if (avaliacao.id && !isNaN(Number(avaliacao.id))){
+      if (avaliacao.idAvaliacao && !isNaN(Number(avaliacao.idAvaliacao))){
         this.avaliacaoService.alterar(avaliacao).subscribe(observer);
       } else{
         this.avaliacaoService.cadastrar(avaliacao).subscribe(observer);
