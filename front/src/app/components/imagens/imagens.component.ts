@@ -31,7 +31,8 @@ export class ImagensComponent implements OnInit {
 
 
     this.formularioImagem = new FormGroup({
-      url: new FormControl(null)
+      url: new FormControl(null),
+      jogoId: new FormControl(null)
     })
   }
   enviarFormulario(): void {
