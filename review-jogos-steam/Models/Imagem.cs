@@ -1,9 +1,7 @@
-// Feito pelo GPT
-
 using System.ComponentModel.DataAnnotations;
+namespace review_jogos_steam.Models;
+using review_jogos_steam.Models;
 
-namespace review_jogos_steam.Models
-{
     public class Imagem
     {
         [Key]
@@ -12,4 +10,4 @@ namespace review_jogos_steam.Models
         public int? JogoId { get; set; }
         public Jogo? Jogo { get; set; }
     }
-}
+

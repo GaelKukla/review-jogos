@@ -5,7 +5,7 @@ using review_jogos_steam.Models;
 public class Jogo
 {
     [Key]
-    public int Id { get; set; }
+    public int IdJogo { get; set; }
 
     public int? PlataformaId { get; set; }
     public Plataforma? Plataforma {get;  set;}

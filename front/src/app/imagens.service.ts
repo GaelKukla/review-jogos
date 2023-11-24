@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Imagem } from './Imagem';
-
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type' : 'application/json'
@@ -13,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ImagensService {
-  apiUrl = 'http://localhost:5000/Imagem';
+  apiUrl = 'http://localhost:5000/imagem';
   constructor(private http: HttpClient) { }
   listar(): Observable<Imagem[]> {
     const url = `${this.apiUrl}/listar`;
@@ -36,5 +35,3 @@ export class ImagensService {
     return this.http.delete<number>(url, httpOptions);
   }
 }
-
-

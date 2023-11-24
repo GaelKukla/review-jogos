@@ -24,8 +24,8 @@ namespace review_jogos_steam.Controllers
         {
             if (_dbContext is null)
                 return NotFound();
-
-            await _dbContext.Imagem.AddAsync(imagem);
+            if (_dbContext.Imagem is null) return NotFound();
+            await _dbContext.AddAsync(imagem);
             await _dbContext.SaveChangesAsync();
             return Created("", imagem);
         }
@@ -34,9 +34,8 @@ namespace review_jogos_steam.Controllers
         [Route("listar")]
         public async Task<ActionResult<IEnumerable<Imagem>>> Listar()
         {
-            if (_dbContext is null)
-                return NotFound();
-
+            if (_dbContext is null) return NotFound();
+            if (_dbContext.Imagem is null) return NotFound();
             return await _dbContext.Imagem.ToListAsync();
         }
 
@@ -44,24 +43,19 @@ namespace review_jogos_steam.Controllers
         [Route("buscar/{idImagem}")]
         public async Task<ActionResult<Imagem>> Buscar(int idImagem)
         {
-            if (_dbContext is null)
-                return NotFound();
-
-            var imagem = await _dbContext.Imagem.FindAsync(idImagem);
-
-            if (imagem is null)
-                return NotFound();
-
-            return imagem;
+            if (_dbContext is null) return NotFound();
+            if (_dbContext.Imagem is null) return NotFound();
+            var imgtemp = await _dbContext.Imagem.FindAsync(idImagem);
+            if (imgtemp is null) return NotFound();
+            return imgtemp;
         }
 
         [HttpPut()]
         [Route("alterar")]
         public async Task<ActionResult> Alterar(Imagem imagem)
         {
-            if (_dbContext is null)
-                return NotFound();
-
+            if (_dbContext is null) return NotFound();
+            if (_dbContext.Imagem is null) return NotFound();
             _dbContext.Imagem.Update(imagem);
             await _dbContext.SaveChangesAsync();
             return Ok();
@@ -71,15 +65,11 @@ namespace review_jogos_steam.Controllers
         [Route("excluir/{idImagem}")]
         public async Task<ActionResult> Excluir(int idImagem)
         {
-            if (_dbContext is null)
-                return NotFound();
-
-            var imagem = await _dbContext.Imagem.FindAsync(idImagem);
-
-            if (imagem is null)
-                return NotFound();
-
-            _dbContext.Remove(imagem);
+            if (_dbContext is null) return NotFound();
+            if (_dbContext.Imagem is null) return NotFound();
+            var imgtemp = await _dbContext.Imagem.FindAsync(idImagem);
+            if (imgtemp is null) return NotFound();
+            _dbContext.Imagem.Remove(imgtemp);
             await _dbContext.SaveChangesAsync();
             return Ok();
         }

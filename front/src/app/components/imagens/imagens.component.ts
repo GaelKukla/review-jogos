@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ImagensService } from 'src/app/imagens.service';
 import { Imagem } from 'src/app/Imagem';
-import { Jogo } from 'src/app/Jogo';
 import { JogosService } from 'src/app/jogos.service';
+import { Jogo } from 'src/app/Jogo';
 import { Observer } from 'rxjs';
 
 @Component({
@@ -12,7 +12,7 @@ import { Observer } from 'rxjs';
   styleUrls: ['./imagens.component.css']
 })
 export class ImagensComponent implements OnInit {
-  formulario: any;
+  formularioImagem: any;
   tituloFormulario: string = '';
   jogos: Array<Jogo> | undefined;
 
@@ -21,21 +21,22 @@ export class ImagensComponent implements OnInit {
 
   ngOnInit(): void {
     this.tituloFormulario = 'Nova Imagem';
+
     this.jogosService.listar().subscribe(jogos => {
       this.jogos = jogos;
-      if (this.jogos && this.jogos.length > 0) {
-        this.formulario.get('jogoId')?.setValue(this.jogos[0].idJogo);
+      if (this.jogos && this.jogos.length > 0){
+        this.formularioImagem.get('jogoId')?.setValue(this.jogos[0].idJogo);
       }
     });
 
 
-    this.formulario = new FormGroup({
+    this.formularioImagem = new FormGroup({
       url: new FormControl(null)
     })
   }
   enviarFormulario(): void {
     console.log('Método enviarFormulario() chamado.');
-    const imagem: Imagem = this.formulario.value;
+    const imagem: Imagem = this.formularioImagem.value;
     const observer: Observer<Imagem> = {
         next(_result): void{
           alert('Modelo salvo com sucesso.');
@@ -52,4 +53,5 @@ export class ImagensComponent implements OnInit {
         this.imagensService.cadastrar(imagem).subscribe(observer);
       }
     }
+
 }
